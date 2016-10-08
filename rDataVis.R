@@ -1,6 +1,8 @@
 library(ggplot2)
 library(ggthemes)
 
+## Exercise E
+
 # China Internet Usage - source: world bank 2012
 chinainternet <- read.csv("./data/chinainternet.csv")
 summary(chinainternet)
@@ -23,3 +25,6 @@ barplot(as.matrix(chinaexports), border = NA, space = 0.25, ylim = c(0,40),
         ylab = "% of GDP",
         main = "Exports of Goods and Services in China as % of GDP: 2000 to 2011")
 
+## Exercise F
+hiv <- read.csv("./data/pakistan.childHIV.csv")
+sa <- read.csv("./data/southasia.csv")
