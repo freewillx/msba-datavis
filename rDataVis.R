@@ -30,3 +30,17 @@ barplot(as.matrix(chinaexports), border = NA, space = 0.25, ylim = c(0,40),
 # Exercise F - 20 world exporters
 worldexports <- read.csv("./data/worldexports_transform.csv")
 summary(worldexports)
+
+# Remove outliers
+worldexports.plot <- worldexports[worldexports$volume > 0,]
+summary(worldexports.plot)
+
+worldexports.plot$year <- as.character(worldexports.plot$year)
+
+h <- histogram(~ volume | year, data = worldexports.plot, layout=c(4,4),
+          scales=list(
+            y=list(at=seq(20,60,20),labels=seq(20,60,20)),
+            x=list(at=seq(0,120,40),labels=seq(0,120,40))
+            ))
+
+update(h, index.cond=list(c(1,14:16,5:2,9:6,13:10)))
