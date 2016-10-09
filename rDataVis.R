@@ -1,5 +1,6 @@
 library(ggplot2)
 library(ggthemes)
+library(lattice)
 
 ## Exercise E
 
@@ -24,3 +25,8 @@ Sys.sleep(0.5)
 barplot(as.matrix(chinaexports), border = NA, space = 0.25, ylim = c(0,40),
         ylab = "% of GDP",
         main = "Exports of Goods and Services in China as % of GDP: 2000 to 2011")
+
+
+# Exercise F - 20 world exporters
+worldexports <- read.csv("./data/worldexports_transform.csv")
+summary(worldexports)
