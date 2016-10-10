@@ -84,24 +84,23 @@ xlabel('Pre Salary %')
 plt.plot([75.96, 75.96], [0, 26], 'r', alpha=0.25, lw=2)
 
 """
-Plot three more charts for average salary and total tuition cost
+Plot two more charts for average salary and total tuition cost
 """
-# getting sorted data for the 4th, 5th and 10th column
+# getting sorted data for the 4th and 5th column
 avgsalsort = sorted(data, key=itemgetter(3))
-totaltuitsort = sorted(data, key=itemgetter(9))
+gradsort = sorted(data, key=itemgetter(5))
 # print(totaltuitsort[4])
 
 
 avgsalary = list(map(itemgetter(3), avgsalsort))
 avgsalary = list(map(lambda x: x/1000, avgsalary))
-totaltuition = list(map(itemgetter(9), totaltuitsort))
-totaltuition = list(map(lambda x: x/1000, totaltuition))
+gradjobpercent = list(map(itemgetter(5), gradsort))
 print (avgsalary)
-print (totaltuition)
+print (gradjobpercent)
 
 # getting corresponding school names for sorted column 4 data
 avgsalnames = list(map(itemgetter(1), avgsalsort))
-totaltuitnames = list(map(itemgetter(1), totaltuitsort))
+gradjobnames = list(map(itemgetter(1), gradsort))
 
 """
 Setup figure 2 average salary
@@ -123,7 +122,7 @@ xlabel('Average Starting Salary in USD(000s)')
 plt.plot([113.73, 113.73], [0, 26], 'r', alpha=0.25, lw=2)
 
 """
-Setup figure 3 total tuitions
+Setup figure 3 graduate job percent
 """
 ax3 = fig.add_subplot(133, frameon=False, axis_bgcolor='#FFFFFF')
 
@@ -136,11 +135,11 @@ for a in ax3.xaxis.majorTicks:
     a.tick1On = False
     a.tick2On = False
 
-ax3.barh(pos,totaltuition, align='center', edgecolor='#CCCCCC', height=.25, color='#CCCCCC')
-yticks(pos, (totaltuitnames))
-xlabel('Total Tuition in USD(000s)')
+ax3.barh(pos, gradjobpercent, align='center', edgecolor='#CCCCCC', height=.25, color='#CCCCCC')
+yticks(pos, (gradjobnames))
+xlabel('Percentage of Graduates with Jobs')
 
-plt.plot([94.96, 94.96], [0, 26], 'r', alpha=0.25, lw=2)
+plt.plot([93.04, 93.04], [0, 26], 'r', alpha=0.25, lw=2)
 
 PLT.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
 # display the chart
